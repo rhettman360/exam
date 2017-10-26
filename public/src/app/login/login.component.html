@@ -1,0 +1,6 @@
+<form (submit)="createUser()">
+  <label>Name</label>
+  <input type='text' name='name' [(ngModel)]="newUser.name">
+  <button type='submit'>Login</button>
+</form>
+<p *ngFor="let error of errors" [ngStyle]="{'color':'red'}"> {{error}}</p>

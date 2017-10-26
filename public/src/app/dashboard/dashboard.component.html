@@ -1,0 +1,25 @@
+
+<div class='float_right'>
+<a href (click)='logout()'>Logout</a>
+
+<a href [routerLink]="['/new_poll']">Create a New Poll</a>
+</div>
+<h1>Current Polls:</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Survey Question</th>
+    <th>Date Posted</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor='let poll of polls'>
+    <td>{{poll.user.name}}<td>
+    <td><a href [routerLink]="['/poll', poll._id]">{{poll.question}}</a><td>
+      <td>{{poll.updatedAt | date:'longDate'}}<td>
+    <td><a href (click)="deletePoll(poll._id)" *ngIf='poll.user._id===currentUser._id'>Delete</a><td>
+  </tr>
+</table>
+<!-- {{ today | date:'longDate' }}  -->
